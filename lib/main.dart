@@ -8,7 +8,7 @@ import 'package:yandex_maps_mapkit/search.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await init.initMapkit(apiKey: '8b4ef9c3-3ca1-4ebf-92c8-f828255d02f8');
+  await init.initMapkit(apiKey: '0b369467-ba08-4222-b583-81c369398640');
   runApp(const MyApp());
 }
 

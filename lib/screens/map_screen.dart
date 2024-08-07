@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:yandex_maps_mapkit/mapkit.dart';
 import 'package:yandex_maps_mapkit/yandex_map.dart';
 
@@ -19,6 +18,20 @@ class _MapScreenState extends State<MapScreen> {
       body: YandexMap(
         onMapCreated: (mapWindow) {
           _mapWindow = mapWindow;
+          _mapWindow?.map.move(const CameraPosition(
+            Point(latitude: 59.935493, longitude: 30.327392),
+            zoom: 13.0,
+            azimuth: 0.0,
+            tilt: 0.0,
+          ));
+          // вот это не работает, 'Animation' isn't a function.
+          // Try correcting the name to match an existing function, or define a method or function named 'Animation'.
+          // _mapWindow?.map.moveWithAnimation(const CameraPosition(
+          //   Point(latitude: 59.935493, longitude: 30.327392),
+          //   zoom: 13.0,
+          //   azimuth: 0.0,
+          //   tilt: 0.0,
+          // ),Animation());
         },
       ),
     );
@@ -36,6 +49,8 @@ class _MapScreenState extends State<MapScreen> {
 // 3
 // kwpL23U0dFSmJ3sD3wir <warn>: Image with VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT allocated
 // cPczFUwLR3AwlAHGB/YS <warn>: Creating frame context circular buffer #0
-// fG343N33MumfVyptIao7 <error>: (VK_NOT_READY) Can't submit drawing commands
-// Lost connection to device.
+// cPczFUwLR3AwlAHGB/YS <warn>: Creating frame context circular buffer #1
+// cPczFUwLR3AwlAHGB/YS <warn>: Creating frame context circular buffer #2
+// 75
+// kwpL23U0dFSmJ3sD3wir <warn>: Image with VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT allocated
 
