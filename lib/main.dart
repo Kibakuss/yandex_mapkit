@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:search/screens/map_screen.dart';
 import 'package:yandex_maps_mapkit/init.dart' as init;
 import 'package:yandex_maps_mapkit/mapkit.dart';
 import 'package:yandex_maps_mapkit/search.dart';
@@ -142,20 +143,44 @@ class _AddAdressState extends State<AddAdress> {
           autofocus: true,
         ),
       ),
-      body: Container(
-          color: Colors.white,
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: _suggestions.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(_suggestions[index]),
-                onTap: () {
-                  print('Выбран адрес: ${_suggestions[index]}');
+      body: Column(
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MapScreen()),
+                );
+              },
+              child: Text('go to Map page')),
+          Container(
+              color: Colors.white,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: _suggestions.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(_suggestions[index]),
+                    onTap: () {
+                      print('Выбран адрес: ${_suggestions[index]}');
+                    },
+                  );
                 },
-              );
-            },
-          )),
+              )),
+        ],
+      ),
     );
   }
 }
+
+//ios console output
+// tqwimKl9EHiaa+yGIU2I <warn>: Empty operatorInfo!
+// [log] Инициализация состояния
+// [log] Инициализация завершена
+// [log] Текст поиска изменен:
+// [log] Текст поиска изменен: р
+// [log] Выполнение поиска для запроса: р
+// [log] дошли
+// Lost connection to device.
+
+// Exited.
